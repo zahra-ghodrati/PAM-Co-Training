@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>factore forosh</title>
+
+</head>
+<body>
+<form action="/sales/factor" method="post">
+    customer name: <select name="person" id="cmbPersons">
+    </select>
+    <br><br>
+    product name: <select name="product" id="cmbProducts">
+    </select>
+    <br><br>
+    count: <input type="text" name="qty">
+    <br><br>
+
+    <script type="text/javascript" lang="javascript">
+        function fillCombo(cmbID,url) {
+            var request = new XMLHttpRequest();
+            request.onreadystatechange = function () {
+                var x = document.getElementById(cmbID);
+                if (this.readyState == 4 && this.status == 200) {
+                    debugger;
+                    var dataArray = JSON.parse(this.responseText);
+                    for (var i = 0; i < dataArray.length; i++) {
+                        var option = document.createElement("option");
+                        option.value = dataArray[i].id;
+                        option.text = dataArray[i].name;
+                        x.add(option);
+                    }
+                }
+            };
+            request.open("GET", url, true);
+            request.send();
+
+        }
+
+
+        fillCombo("cmbPersons","/persons");
+        fillCombo("cmbProducts","/products");
+
+
+    </script>
+
+    <input type="submit" value="sabt">
+
+</form>
+</body>
+</html>

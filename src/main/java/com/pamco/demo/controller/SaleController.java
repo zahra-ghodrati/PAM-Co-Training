@@ -18,12 +18,12 @@ public class SaleController {
     @Autowired
     private SaleServiceImpl saleService;
     @Autowired
-    HttpServletRequest request;
+    private HttpServletRequest request;
 
 
     @GetMapping("/factor")
     public String showForm(Model model) {
-        return "saleFacorForm";
+        return "saleFactorForm";
 
     }
 

@@ -3,26 +3,29 @@ package com.pamco.demo.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "TB_DEPARTMENTS")
 public class DepartmentModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int depID;
+    @Column(name = "ID")
+    private int id;
 
-    private String depName;
+    @Column(name = "NAME")
+    private String name;
 
-    public int getDepID() {
-        return depID;
+    public int getId() {
+        return id;
     }
 
-    public void setDepID(int depID) {
-        this.depID = depID;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public String getDepName() {
-        return depName;
+    public String getName() {
+        return name;
     }
 
-    public void setDepName(String depName) {
-        this.depName = depName;
+    public void setName(String name) {
+        this.name = name;
     }
 }

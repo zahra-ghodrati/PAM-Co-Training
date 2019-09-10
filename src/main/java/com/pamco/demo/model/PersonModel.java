@@ -3,28 +3,17 @@ package com.pamco.demo.model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "TB_PERSONS")
 public class PersonModel {
-
-//    @OneToMany(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "dep_id")
-//    private List<DepartmentModel> persons ;
-//
-//    public List<PersonModel> getPersons() {
-//        return persons;
-//    }
-//
-//    public void setAddresses(List<PersonModel> persons) {
-//        this.persons = persons;
-//    }
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "perID")
+    @Column(name = "ID")
     private int ID;
 
-    @Column(name = "per_name")
+    @Column(name = "NAME")
     private String name;
+    @Column(name = "DEP_ID")
     private int depID;
 
     public int getID() {

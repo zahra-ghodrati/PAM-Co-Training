@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Result</title>
+</head>
+<body>
+
+<table border="2" style="border-color: darkmagenta">
+    <thead>
+    <tr>
+        <th> Department</th>
+        <th> Person</th>
+        <th> Product</th>
+        <th> Price</th>
+        <th> Qty</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${reportModels.empty}">
+        <td colspan="2"> No Record Available</td>
+    </tr>
+    <tr th:each="report : ${reportModels}">
+        <td><span th:text="${report.departmentName}"> Department </span></td>
+        <td><span th:text="${report.personName}"> Person </span></td>
+        <td><span th:text="${report.productName}"> Product </span></td>
+        <td><span th:text="${report.price}"> Price </span></td>
+        <td><span th:text="${report.qty}"> Qty </span></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

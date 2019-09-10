@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report</title>
+</head>
+<body>
+<form action="/report/perDepartment" method="post">
+    select department name: <select name="department" id="cmbDeps">
+</select>
+    <br><br>
+    <script type="text/javascript" lang="javascript">
+        var request = new XMLHttpRequest();
+        request.onreadystatechange = function () {
+            var x = document.getElementById("cmbDeps");
+            if (this.readyState == 4 && this.status == 200) {
+                debugger;
+                var dataArray = JSON.parse(this.responseText);
+                for (var i = 0; i < dataArray.length; i++) {
+                    var option = document.createElement("option");
+                    option.value = dataArray[i].id;
+                    option.text = dataArray[i].name;
+                    x.add(option);
+                }
+            }
+        }
+        request.open("GET","/deps", true);
+        request.send();
+    </script>
+    <input type="submit" value="search">
+
+</body>
+</html>

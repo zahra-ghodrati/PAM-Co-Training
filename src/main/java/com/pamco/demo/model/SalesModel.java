@@ -1,18 +1,20 @@
 package com.pamco.demo.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "TB_SALES")
 public class SalesModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "ID")
     private int saleID;
 
+    @Column(name = "QTY")
     private int qty;
+    @Column(name = "PER_ID")
     private int personID;
+    @Column(name = "PRO_ID")
     private int productID;
 
     public int getSaleID() {
